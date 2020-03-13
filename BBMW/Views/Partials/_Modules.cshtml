@@ -1,0 +1,12 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Start>
+@using ContentModels = BBMW.DocumentTypes;
+
+    <main role="main">
+        <br /><br />
+        @foreach (var module in Model.Modules)
+        {
+            Html.RenderAction($"Get{module.ContentType.Alias}", "Module", new { content = module });
+            <br />
+            <br />
+        }
+    </main>

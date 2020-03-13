@@ -1,0 +1,13 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Start>
+@using ContentModels = BBMW.DocumentTypes;
+@using Newtonsoft.Json;
+@using BBMW.Classes;
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+
+    var jsonModel = JsonHelper.GenerateJsonFromIPublishedContent(Model);
+}
+
+@Html.Raw(jsonModel)
+
+@Html.Partial("_Modules", Model)
